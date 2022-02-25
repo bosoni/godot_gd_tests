@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/Player_KB.gd" type="Script" id=1]
+[ext_resource path="res://scripts/AnimController.gd" type="Script" id=2]
+[ext_resource path="res://prefabs/ground2_SB.tscn" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/ugly1_KB.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/AnimBlendingController.gd" type="Script" id=5]
+[ext_resource path="res://scripts/ESC_quit.gd" type="Script" id=6]
+
+[node name="Test" type="Spatial"]
+script = ExtResource( 6 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.963615, 0.267293, 0, -0.267293, 0.963615, 0, 10.2237, 19.5743 )
+
+[node name="Ground" parent="." instance=ExtResource( 3 )]
+
+[node name="ugly_anim" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10972, 0.0212132, -0.0915181 )
+script = ExtResource( 1 )
+
+[node name="script" type="Node" parent="ugly_anim"]
+script = ExtResource( 2 )
+
+[node name="ugly_animBlending" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79726, 0.200484, 0.782003 )
+script = ExtResource( 1 )
+
+[node name="script" type="Node" parent="ugly_animBlending"]
+script = ExtResource( 5 )

@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://prefabs/ground2_SB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/TPSCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/ugly1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/ESC_quit.gd" type="Script" id=5]
+[ext_resource path="res://scripts/AnimBlendingController.gd" type="Script" id=6]
+[ext_resource path="res://scripts/tests/Test_GetItems.gd" type="Script" id=7]
+
+[node name="Test" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="ground2_SB" parent="." instance=ExtResource( 1 )]
+
+[node name="Stats" parent="." instance=ExtResource( 3 )]
+
+[node name="TPSCamera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.81852, 0 )
+
+[node name="ugly1" parent="TPSCamera" instance=ExtResource( 4 )]
+
+[node name="animControllerNode" type="Node" parent="TPSCamera/ugly1"]
+script = ExtResource( 6 )
+
+[node name="script_GetItems" type="Spatial" parent="."]
+script = ExtResource( 7 )

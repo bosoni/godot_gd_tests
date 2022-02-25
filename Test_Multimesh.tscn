@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://prefabs/ground2_SB.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/ESC_quit.gd" type="Script" id=3]
+[ext_resource path="res://scripts/tests/Test_multimesh.gd" type="Script" id=4]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=6]
+[ext_resource path="res://SetupGraphics.tscn" type="PackedScene" id=7]
+
+[node name="Test" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.958963, 0.28353, 0, -0.28353, 0.958963, 0, 18.8528, 35.4624 )
+
+[node name="Ground" parent="." instance=ExtResource( 2 )]
+
+[node name="SetupGraphicsNode" parent="." instance=ExtResource( 7 )]
+
+[node name="Stats" parent="." instance=ExtResource( 6 )]
+
+[node name="script" type="Node" parent="."]
+script = ExtResource( 4 )
