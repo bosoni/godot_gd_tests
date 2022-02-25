@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://models/ground2.glb" type="PackedScene" id=1]
+[ext_resource path="res://terrain/ground2.material" type="Material" id=2]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_do_not_receive_shadows = true
+params_cull_mode = 2
+albedo_color = Color( 0.0705882, 0.133333, 0.654902, 0.454902 )
+metallic = 0.07
+metallic_specular = 0.97
+
+[node name="ground2_SB" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="Plane" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118008, 0 )
+material/0 = ExtResource( 2 )
+
+[node name="waterPlane" type="MeshInstance" parent="." index="1"]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="2"]
+transform = Transform( 0.1, 0, 0, 0, -0.0632989, 0.0774161, 0, -0.0774161, -0.0632989, 0, 2.00007, -5.08474 )
+shadow_enabled = true
+directional_shadow_blend_splits = true
